@@ -1,2 +1,15 @@
-# douyin-qsy
-最好用到抖音去水印网站
+# umi project
+
+## Getting Started
+
+Install dependencies,
+
+```bash
+$ yarn
+```
+
+Start the dev server,
+
+```bash
+$ yarn start
+```
