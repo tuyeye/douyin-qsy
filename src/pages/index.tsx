@@ -8,18 +8,21 @@ const { Search } = Input;
 const namespace = 'main';
 
 const page: FC<any> = ({ main: { dir }, dispatch, loading }) => {
+  const search = (url: string) => {
+    if (url) {
+      let format = /https:\/\/.+?\/.+?\//;
+      let realUrl = url.match(format);
+
+      dispatch({
+        type: `${namespace}/fetch`,
+        payload: { url: realUrl },
+      });
+    }
+  };
+
   return (
     <div>
-      <p
-        style={{
-          fontSize: '25px',
-          color: 'rgba(0,0,0,.7)',
-          fontFamily: 'webfont',
-          textAlign: 'center',
-        }}
-      >
-        彼岸花 - 抖音去水印 😁
-      </p>
+      <p className="title">彼岸花 - 抖音去水印 😁</p>
 
       <Alert
         message="抖音分享链接形如：“一只小松鼠  https://v.douyin.com/JSCVjxs/ 复制此链接，打开【抖音短视频】，直接观看视频！”"
@@ -34,25 +37,13 @@ const page: FC<any> = ({ main: { dir }, dispatch, loading }) => {
         enterButton="开始解析"
         size="large"
         loading={loading}
-        onSearch={url => {
-          let format = /https:\/\/.+?\/.+?\//;
-          let realUrl = url.match(format);
-
-          dispatch({
-            type: `${namespace}/fetch`,
-            payload: { url: realUrl },
-          });
-        }}
+        onSearch={search}
       />
 
       {dir && (
         <>
-          <video
-            src={`http://sanqii.cn/${dir}`}
-            controls
-            style={{ width: '100%', marginTop: '20px' }}
-          >
-            您的浏览器不支持 video 标签。
+          <video src={`http://sanqii.cn/${dir}`} controls>
+            您的浏览器暂不支持播放视频。
           </video>
           <Button
             icon={<DownloadOutlined />}
@@ -69,15 +60,7 @@ const page: FC<any> = ({ main: { dir }, dispatch, loading }) => {
         </>
       )}
 
-      <p
-        style={{
-          textAlign: 'center',
-          width: '96%',
-          color: '#999',
-          fontWeight: 'bold',
-          marginTop: '40px',
-        }}
-      >
+      <p className="footer">
         © {new Date().getFullYear()}
         <span onClick={() => window.open('http://www.sanqi.us')}>彼岸花网</span>
         <Divider type="vertical" />
