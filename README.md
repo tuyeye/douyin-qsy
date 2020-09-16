@@ -1,15 +1,3 @@
-# umi project
+# 全网最好用的抖音去水印网站
 
-## Getting Started
-
-Install dependencies,
-
-```bash
-$ yarn
-```
-
-Start the dev server,
-
-```bash
-$ yarn start
-```
+如有其他需求，请在 issue 中提出，嘤嘤嘤～
