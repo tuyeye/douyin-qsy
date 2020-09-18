@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { BackTop, Input, Alert, Divider, Button } from 'antd';
 import { DownloadOutlined } from '@ant-design/icons';
 import { connect } from 'umi';
-import './index.less';
+import './index.css';
 
 const { Search } = Input;
 const namespace = 'main';
@@ -64,7 +64,7 @@ const page: FC<any> = ({ main: { dir }, dispatch, loading }) => {
         © {new Date().getFullYear()}
         <span onClick={() => window.open('http://www.sanqi.us')}>彼岸花网</span>
         <Divider type="vertical" />
-        <span onClick={() => window.open('http://blog.sanqi.us')}>
+        <span onClick={() => window.open('http://blog.sanqii.cn')}>
           作者博客
         </span>
         <br />
